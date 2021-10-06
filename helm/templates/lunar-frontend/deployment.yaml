@@ -1,0 +1,25 @@
+# 1. Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ .Values.lunarFrontend.appName }}
+  name: {{ .Values.lunarFrontend.appName }}
+  namespace: {{ .Values.namespace }}
+spec:  
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.lunarFrontend.appName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.lunarFrontend.appName }}
+    spec:
+      containers:
+      - name: {{ .Values.lunarFrontend.appName }}
+        image: {{ .Values.lunarFrontend.image }}
+        imagePullPolicy: Always          
+        ports:
+        - containerPort: {{ .Values.lunarFrontend.containerPort }}   
+          name: {{ .Values.lunarFrontend.appName }}   

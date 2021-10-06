@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.lunarBackend.appName }}
+  namespace: {{ .Values.namespace }}
+spec:
+  ports:
+    - protocol: TCP
+      name: web
+      port: {{ .Values.lunarBackend.containerPort }}   
+  selector:
+    app: {{ .Values.lunarBackend.appName }}

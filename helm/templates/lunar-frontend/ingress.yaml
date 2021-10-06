@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ .Values.lunarFrontend.appName }}
+  namespace: {{ .Values.namespace }}
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: {{ .Values.lunarFrontend.ingressRoute }}
+    kind: Rule
+    services:
+    - name: {{ .Values.lunarFrontend.appName }}
+      port: {{ .Values.lunarFrontend.containerPort }}   

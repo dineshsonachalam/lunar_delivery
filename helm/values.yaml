@@ -1,0 +1,14 @@
+namespace: dinesh
+replicas: 1
+
+lunarBackend:
+    image: dineshsonachalam/lunar-backend:latest
+    containerPort: 8005
+    appName: lunar-api
+    ingressRoute: (Host(`api-lunar.dineshsonachalam.com`))
+
+lunarFrontend:
+    image: dineshsonachalam/lunar-frontend:latest
+    containerPort: 3000   
+    appName: lunar-ui
+    ingressRoute: (Host(`lunar.dineshsonachalam.com`))
