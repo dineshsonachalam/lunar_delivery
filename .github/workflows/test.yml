@@ -15,7 +15,7 @@ jobs:
       - name: API testing
         run: | 
             cd backend 
-            go mod tidy
+            go build
             go test
 
   upload-docker-image:
