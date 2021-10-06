@@ -8,6 +8,6 @@ ENV PORT=8005
 
 EXPOSE $PORT
 
-RUN go build api.go
+RUN go build
 
 CMD ["./lunar"]
