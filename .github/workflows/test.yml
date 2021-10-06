@@ -16,7 +16,7 @@ jobs:
         run: | 
             cd backend 
             go build
-            go test
+            # go test
 
   upload-docker-image:
     needs: test
