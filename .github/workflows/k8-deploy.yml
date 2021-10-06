@@ -6,18 +6,6 @@ on:
       - '**'  # matches every branch
   
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push'
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: API testing
-        run: | 
-            cd backend 
-            go build
-            # go test
-
   upload-docker-image:
     needs: test
     runs-on: ubuntu-latest
