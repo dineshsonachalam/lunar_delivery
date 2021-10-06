@@ -7,7 +7,6 @@ on:
   
 jobs:
   upload-docker-image:
-    needs: test
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
